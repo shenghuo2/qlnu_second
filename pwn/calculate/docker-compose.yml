@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  real_mt:
+    build: .
+    ports:
+      - "10001:10000"
+    environment:
+      - FLAG=NKCTF{test_flag}
