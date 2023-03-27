@@ -1,0 +1,14 @@
+# ctrl_u
+
+version: "2"
+
+services:
+
+  web4:
+    build: .
+    image: shenghuo2/web4
+    restart: always
+    ports:
+      - "0.0.0.0:8302:80"
+    environment:
+      - FLAG=QLNU{dadie_vme_me_50}

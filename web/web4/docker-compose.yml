@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+
+  web:
+    build: .
+    image: web/web4
+    restart: always
+    ports:
+      - "80"
+    environment:
+      - FLAG=QLNU{DADIE}
+

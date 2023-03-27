@@ -1,0 +1,28 @@
+version: '2'
+services: 
+# 题目容器的名字
+  read_it: 
+    build:
+      context: .
+    ports: 
+      - 9999:80
+    command: 
+      - bash
+      - -c
+      - |
+          echo -e '#! /bin/bash\nnohup tcpdump -s 0 "port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0) and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)" -w "/var/data/cap_name.cap" >/dev/null 2>&1 &' >/listen.sh &
+          /start.sh &
+          apache2-foreground
+
+    volumes: 
+      - "$PWD/flag:/var/www/flag:ro"
+      - "date_dir:/var/data"
+    tty: true
+    networks: 
+      - net
+    
+networks:
+    # 配置docker network
+    net: 
+      external: 
+         name: h1ve_frp_containers

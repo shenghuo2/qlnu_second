@@ -1,0 +1,10 @@
+# ctrl_u
+
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "8000:80"
+    environment:
+      - FLAG=QLNU{a203a65a-4393-48a0-96b2-30a5bf94ecf1}
