@@ -1,4 +1,4 @@
-# QLNU_compete_docker
+# qlnu_second
 校赛靶机使用的工程文件
 
 以及所有题目附件
